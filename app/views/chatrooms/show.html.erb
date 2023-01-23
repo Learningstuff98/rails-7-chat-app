@@ -1,1 +1,11 @@
 <h1><%= @chatroom.name %></h1>
+
+<h2>Add a comment</h2>
+<%= simple_form_for @comment, url: chatroom_comments_path(@chatroom) do |f| %>
+  <h4><%= f.input :content %></h4>
+  <%= f.button :submit %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <h3><%= comment.content %></h3>
+<% end %>
