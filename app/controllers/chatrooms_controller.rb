@@ -4,8 +4,12 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.create(:chatroom_params)
+    @chatroom = Chatroom.create(chatroom_params)
     redirect_to root_path
+  end
+
+  def show
+    @chatroom = Chatroom.find(params[:id])
   end
 
   private

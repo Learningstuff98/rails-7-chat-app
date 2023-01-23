@@ -1,2 +1,6 @@
 <h1>Chatroom new page</h1>
 
+<%= simple_form_for @chatroom, url: chatrooms_path do |f| %>
+  <h4><%= f.input :name %></h4>
+  <%= f.button :submit %>
+<% end %>
