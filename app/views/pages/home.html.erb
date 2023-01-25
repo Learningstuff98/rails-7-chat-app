@@ -1,9 +1,13 @@
 <h1>Home page</h1>
 
-<h3><%= link_to "Add a new chatroom", new_chatroom_path %></h3>
+<%= simple_form_for Chatroom.new, url: chatrooms_path do |f| %>
+  <h4><%= f.input :name %></h4>
+  <%= f.button :submit %>
+<% end %>
 
 <br/>
 
 <% @chatrooms.each do |chatroom| %>
   <h3><%= link_to chatroom.name, chatroom_path(chatroom) %></h3>
 <% end %>
+ 

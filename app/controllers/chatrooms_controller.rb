@@ -1,8 +1,4 @@
 class ChatroomsController < ApplicationController
-  def new
-    @chatroom = Chatroom.new
-  end
-
   def create
     @chatroom = Chatroom.create(chatroom_params)
     redirect_to root_path
