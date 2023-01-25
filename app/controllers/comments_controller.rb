@@ -1,8 +1,13 @@
 class CommentsController < ApplicationController
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
-    @comment = @chatroom.comments.create(comment_params)
-    redirect_to chatroom_path(@chatroom)
+    @chatroom.comments.create(comment_params)
+    Turbo::StreamsChannel.broadcast_update_to(
+      "chatroom_channel",
+      partial: "chatrooms/comments",
+      target: "target",
+      locals: {comments: @chatroom.comments}
+    )
   end
 
   private

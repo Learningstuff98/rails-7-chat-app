@@ -1,3 +1,5 @@
+<%= turbo_stream_from "chatroom_channel" %>
+
 <h1><%= @chatroom.name %></h1>
 
 <h2>Add a comment</h2>
@@ -6,6 +8,4 @@
   <%= f.button :submit %>
 <% end %>
 
-<% @comments.each do |comment| %>
-  <h3><%= comment.content %></h3>
-<% end %>
+<%= render partial: "comments", locals: {comments: @comments} %>
