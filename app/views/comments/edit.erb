@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "comment_#{@comment.id}" do %>
+<%= turbo_frame_tag @comment do %>
   <h2>Edit this comment</h2>
   <%= simple_form_for @comment, url: comment_path(@comment) do |f| %>
     <h4><%= f.input :content %></h4>

@@ -1,6 +1,6 @@
 <div id="target">
   <% comments.each do |comment| %>
-    <%= turbo_frame_tag "comment_#{comment.id}" do %>
+    <%= turbo_frame_tag comment do %>
       <h3>
         <%= comment.content %>
         <%= link_to "Edit", edit_comment_path(comment) %>
