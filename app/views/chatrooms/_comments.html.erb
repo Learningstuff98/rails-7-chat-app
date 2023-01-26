@@ -1,5 +1,10 @@
 <div id="target">
   <% comments.each do |comment| %>
-    <h3><%= comment.content %></h3>
+    <%= turbo_frame_tag "comment_turbo_frame" do %>
+      <h3>
+        <%= comment.content %>
+        <%= link_to "Edit", edit_comment_path(comment) %>
+      </h3>
+    <% end %>
   <% end %>
 </div>

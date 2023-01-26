@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
   resources :chatrooms do
-    resources :comments
+    resources :comments, only: [:create]
   end
+  resources :comments, only: [:edit, :update]
 end
