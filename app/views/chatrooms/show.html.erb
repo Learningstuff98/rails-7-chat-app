@@ -1,4 +1,4 @@
-<%= turbo_stream_from "chatroom_channel" %>
+<%= turbo_stream_from "chatroom_channel_#{@chatroom.id}" %>
 
 <h1><%= @chatroom.name %></h1>
 

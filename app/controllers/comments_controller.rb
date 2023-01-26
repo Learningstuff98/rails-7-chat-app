@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to chatroom_path(chatroom) }
       Turbo::StreamsChannel.broadcast_update_to(
-        "chatroom_channel",
+        "chatroom_channel_#{chatroom.id}",
         partial: "chatrooms/comments",
         target: "target",
         locals: {comments: chatroom.comments}
