@@ -1,7 +1,11 @@
 class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.create(chatroom_params)
-    redirect_to root_path
+    if @chatroom.save
+      redirect_to root_path, notice: "Chatroom created!"
+    else
+      redirect_to root_path, notice: "Chatroom names can't be blank."
+    end
   end
 
   def show
