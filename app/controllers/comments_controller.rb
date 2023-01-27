@@ -15,6 +15,13 @@ class CommentsController < ApplicationController
     handle_response(@comment.chatroom)
   end
 
+  def destroy
+    @comment = current_comment
+    @chatroom = @comment.chatroom
+    @comment.destroy
+    handle_response(@chatroom)
+  end
+
   private
 
   def current_comment

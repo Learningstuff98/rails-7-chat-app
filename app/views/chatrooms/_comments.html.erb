@@ -4,6 +4,8 @@
       <h3>
         <%= comment.content %>
         <%= link_to "Edit", edit_comment_path(comment) %>
+        <%= "|" %>
+        <%= link_to "Delete", comment_path(comment), data: { "turbo-method": :delete } %>
       </h3>
     <% end %>
   <% end %>

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :chatrooms do
     resources :comments, only: [:create]
   end
-  resources :comments, only: [:edit, :update]
+  resources :comments, only: [:edit, :update, :destroy]
 end
