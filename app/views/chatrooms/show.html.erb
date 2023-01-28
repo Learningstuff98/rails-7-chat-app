@@ -8,4 +8,6 @@
   <%= f.button :submit %>
 <% end %>
 
+<%= render partial: "layouts/flash", locals: {desired_message: "Comments can't be blank."} %>
+
 <%= render partial: "comments", locals: {comments: @comments} %>

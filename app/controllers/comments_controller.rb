@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
-    @chatroom.comments.create(comment_params)
-    handle_response(@chatroom)
+    @comment = @chatroom.comments.create(comment_params)
+    if @comment.save
+      handle_response(@chatroom)
+    else
+      redirect_to chatroom_path(@chatroom), notice: "Comments can't be blank."
+    end
   end
 
   def edit
